@@ -127,5 +127,103 @@ class TestCreditCardValidator(unittest.TestCase):
         """Verifies Visa card edge cases if valid returns True."""
         self.assertTrue(credit_card_validator("4999123412341234"))
 
+    def test29(self):
+        """Verifies if MasterCard cards with non-numeric characters return False."""
+        self.assertFalse(credit_card_validator("511234abc5678901"))
+
+    def test30(self):
+        """Verifies if MasterCard cards with whitespace return False."""
+        self.assertFalse(credit_card_validator("5112 3456 7890 1234"))
+
+    def test31(self):
+        """Verifies if MasterCard cards with whitespace before numbers return False."""
+        self.assertFalse(credit_card_validator("    5112345678901234"))
+
+    def test32(self):
+        """Verifies if MasterCard cards with whitespace after numbers return False."""
+        self.assertFalse(credit_card_validator("5112345678901234     "))
+
+    def test33(self):
+        """Verifies if MasterCard cards with invalid prefixes return False."""
+        self.assertFalse(credit_card_validator("6012345678901234"))
+
+    def test34(self):
+        """Verifies if MasterCard cards with invalid lengths return False."""
+        self.assertFalse(credit_card_validator("551234567890123"))
+
+    def test35(self):
+        """Verifies if MasterCard cards with invalid lengths return False."""
+        self.assertFalse(credit_card_validator("55123456789012345"))
+
+    def test36(self):
+        """Verifies MasterCard edge cases if valid return True."""
+        self.assertTrue(credit_card_validator("5112345678901234"))
+    
+    def test37(self):
+        """Verifies MasterCard edge cases if valid return True."""
+        self.assertTrue(credit_card_validator("5599123456789012"))
+
+    def test38(self):
+        """Verifies if American Express cards with non-numeric characters return False."""
+        self.assertFalse(credit_card_validator("371234abc567890"))
+
+    def test39(self):
+        """Verifies if American Express cards with whitespace return False."""
+        self.assertFalse(credit_card_validator("3712 345678 90123"))
+
+    def test40s(self):
+        """Verifies if American Express cards with whitespace before numbers return False."""
+        self.assertFalse(credit_card_validator("    371234567890123"))
+
+    def test41(self):
+        """Verifies if American Express cards with whitespace after numbers return False."""
+        self.assertFalse(credit_card_validator("371234567890123     "))
+
+    def test42(self):
+        """Verifies if American Express cards with invalid prefixes return False."""
+        self.assertFalse(credit_card_validator("321234567890123"))
+
+    def test43(self):
+        """Verifies if American Express cards with invalid lengths return False."""
+        self.assertFalse(credit_card_validator("37123456789012"))
+
+    def test44(self):
+        """Verifies if American Express cards with invalid lengths return False."""    
+        self.assertFalse(credit_card_validator("37123456789012345"))
+
+    def test45(self):
+        """Verifies American Express edge case with minimum valid length."""
+        self.assertTrue(credit_card_validator("341234567890123"))
+
+    def test46(self):
+        """Verifies American Express edge case with maximum valid length."""
+        self.assertTrue(credit_card_validator("379912345678901"))
+
+    def test54_amex_invalid_checksum(self):
+        """Verifies if American Express cards with invalid checksums return False."""
+        self.assertFalse(credit_card_validator("378282246310005"))
+
+    def test55_mastercard_invalid_checksum(self):
+        """Verifies if MasterCard cards with invalid checksums return False."""
+        self.assertFalse(credit_card_validator("5555555555554444"))
+
+    def test56_visa_invalid_checksum(self):
+        """Verifies if Visa cards with invalid checksums return False."""
+        self.assertFalse(credit_card_validator("4111111111111111"))
+
+    def test57_amex_valid_checksum(self):
+        """Verifies if American Express cards with valid checksums return True."""
+        self.assertTrue(credit_card_validator("378282246310005"))
+
+    def test58_mastercard_valid_checksum(self):
+        """Verifies if MasterCard cards with valid checksums return True."""
+        self.assertTrue(credit_card_validator("5555555555554444"))
+
+    def test59_visa_valid_checksum(self):
+        """Verifies if Visa cards with valid checksums return True."""
+        self.assertTrue(credit_card_validator("4111111111111111"))
+
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -396,6 +396,21 @@ class TestCreditCardValidator(unittest.TestCase):
 
         self.assertFalse(credit_card_validator('3412345678901203'))
 
+    def test75(self):
+        """Verifies if MasterCard cards with invalid length return False."""
+
+        self.assertFalse(credit_card_validator('272004012341205'))
+
+    def test75(self):
+        """Verifies if MasterCard cards with invalid length return False."""
+
+        self.assertFalse(credit_card_validator('222104012341204'))
+
+    def test75(self):
+        """Verifies if MasterCard cards with invalid length return False."""
+
+        self.assertFalse(credit_card_validator('22210401234121101'))
+
 
 if __name__ == '__main__':
     unittest.main()

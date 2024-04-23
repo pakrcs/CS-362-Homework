@@ -14,15 +14,15 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test2(self):
         """Verifies if Visa cards with valid lengths and invalid prefixes returns False."""
-        self.assertFalse(credit_card_validator("5012340123401234"))
+        self.assertFalse(credit_card_validator("5012340123401205"))
 
     def test3(self):
         """Verifies if Visa cards with invalid lengths and valid prefixes returns False."""
-        self.assertFalse(credit_card_validator("40123401234"))
+        self.assertFalse(credit_card_validator("40123401234123006"))
 
     def test4(self):
         """Verifies if Visa cards with invalid lengths and invalid prefixes returns False."""
-        self.assertFalse(credit_card_validator("701234012340"))
+        self.assertFalse(credit_card_validator("701234012340003"))
 
     def test5(self):
         """Verifies if MasterCard cards with valid lengths and valid prefixes returns True."""
@@ -61,14 +61,6 @@ class TestCreditCardValidator(unittest.TestCase):
         self.assertTrue(credit_card_validator("2500123412341209"))
 
     def test14(self):
-        """Verifies if MasterCard cards with valid lengths and invalid prefixes returns False."""
-        self.assertFalse(credit_card_validator("5912340123401206"))
-
-    def test14(self):
-        """Verifies if MasterCard cards with invalid lengths and valid prefixes returns False."""
-        self.assertFalse(credit_card_validator("51123401234"))
-
-    def test14(self):
         """Verifies if MasterCard cards with invalid lengths and invalid prefixes returns False."""
         self.assertFalse(credit_card_validator("59123401234"))
 
@@ -90,7 +82,7 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test19(self):
         """Verifies if American Express cards with invalid lengths and invalid prefixes returns False."""
-        self.assertFalse(credit_card_validator("39123401234"))
+        self.assertFalse(credit_card_validator("39123401234302"))
 
     def test20(self):
         """Verifies if Visa cards have non-numeric characters returns False."""
@@ -126,7 +118,7 @@ class TestCreditCardValidator(unittest.TestCase):
         
     def test28(self):
         """Verifies Visa card edge cases if valid returns True."""
-        self.assertTrue(credit_card_validator("4999123412341234"))
+        self.assertTrue(credit_card_validator("4999123412341203"))
 
     def test29(self):
         """Verifies if MasterCard cards with non-numeric characters return False."""
@@ -150,19 +142,19 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test34(self):
         """Verifies if MasterCard cards with invalid lengths return False."""
-        self.assertFalse(credit_card_validator("551234567890123"))
+        self.assertFalse(credit_card_validator("551234567890106"))
 
     def test35(self):
         """Verifies if MasterCard cards with invalid lengths return False."""
-        self.assertFalse(credit_card_validator("55123456789012345"))
+        self.assertFalse(credit_card_validator("55123456789012309"))
 
     def test36(self):
         """Verifies MasterCard edge cases if valid return True."""
-        self.assertTrue(credit_card_validator("5112345678901234"))
+        self.assertTrue(credit_card_validator("5112345678901201"))
     
     def test37(self):
         """Verifies MasterCard edge cases if valid return True."""
-        self.assertTrue(credit_card_validator("5599123456789012"))
+        self.assertTrue(credit_card_validator("5599123456789003"))
 
     def test38(self):
         """Verifies if American Express cards with non-numeric characters return False."""
@@ -190,7 +182,7 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test44(self):
         """Verifies if American Express cards with invalid lengths return False."""    
-        self.assertFalse(credit_card_validator("37123456789012345"))
+        self.assertFalse(credit_card_validator("3712345678901200"))
 
     def test45(self):
         """Verifies American Express edge case with minimum valid length."""
@@ -198,11 +190,11 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test46(self):
         """Verifies American Express edge case with maximum valid length."""
-        self.assertTrue(credit_card_validator("379912345678901"))
+        self.assertTrue(credit_card_validator("379912345678907"))
 
     def test47(self):
         """Verifies if American Express cards with invalid checksums return False."""
-        self.assertFalse(credit_card_validator("378282246310005"))
+        self.assertFalse(credit_card_validator("378282246310105"))
 
     def test48(self):
         """Verifies if MasterCard cards with invalid checksums return False."""
@@ -258,7 +250,7 @@ class TestCreditCardValidator(unittest.TestCase):
 
     def test60(self):
         """Verifies if MasterCard cards with invalid length return False."""
-        self.assertFalse(credit_card_validator("51345678901234567"))
+        self.assertFalse(credit_card_validator("27200401234120906"))
 
     def test61(self):
         """Verifies if MasterCard cards with valid length return True."""
@@ -300,6 +292,29 @@ class TestCreditCardValidator(unittest.TestCase):
         """Verifies if American Express cards with invalid length return False."""
         self.assertFalse(credit_card_validator("3712345678901234"))
 
+    def test69(self):
+        """Verifies if MasterCard cards with valid lengths and invalid prefixes returns False."""
+        self.assertFalse(credit_card_validator("5912340123401206"))
+
+    def test70(self):
+        """Verifies if MasterCard cards with invalid lengths and valid prefixes returns False."""
+        self.assertFalse(credit_card_validator("511234012341209"))
+
+    def test71(self):
+        """Verifies if MasterCard cards with invalid lengths and valid prefixes returns False."""
+        self.assertFalse(credit_card_validator("55123401234120901"))
+
+    def test72(self):
+        """Verifies if MasterCard cards with invalid length return False."""
+        self.assertFalse(credit_card_validator("22210040123412005"))
+
+    def test73(self):
+        """Verifies if American Express cards with invalid length return False."""
+        self.assertFalse(credit_card_validator("34123456789007"))
+
+    def test74(self):
+        """Verifies if American Express cards with invalid length return False."""
+        self.assertFalse(credit_card_validator("3412345678901203"))
 
 if __name__ == "__main__":
     unittest.main()

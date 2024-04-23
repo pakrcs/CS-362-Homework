@@ -416,6 +416,66 @@ class TestCreditCardValidator(unittest.TestCase):
 
         self.assertFalse(credit_card_validator('401234012341236'))
 
+    def test77(self):
+        """Verifies if MasterCard cards with invalid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('501234012341201'))
+
+    def test78(self):
+        """Verifies if MasterCard cards with invalid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('50123401234121009'))
+
+    def test79(self):
+        """Verifies if MasterCard cards with invalid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('561234012341208'))
+
+    def test80(self):
+        """Verifies if MasterCard cards with invalid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('56123401273412001'))
+
+    def test81(self):
+        """Verifies if MasterCard cards with invalid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('222034012341203'))
+
+    def test82(self):
+        """Verifies if MasterCard cards with invalid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('22203401235542007'))
+
+    def test83(self):
+        """Verifies if MasterCard cards with invalid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('272134012341200'))
+
+    def test84(self):
+        """Verifies if MasterCard cards with invalid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('27213401234412001'))
+
+    def test85(self):
+        """Verifies if MasterCard cards with valid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('2721340123412003'))
+
+    def test86(self):
+        """Verifies if MasterCard cards with valid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('2220340123412009'))
+
+    def test87(self):
+        """Verifies if MasterCard cards with valid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('5021340123412003'))
+
+    def test88(self):
+        """Verifies if MasterCard cards with valid lengths and invalid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('5620340123412016'))
+
 
 if __name__ == '__main__':
     unittest.main()

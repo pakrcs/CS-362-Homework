@@ -199,29 +199,54 @@ class TestCreditCardValidator(unittest.TestCase):
         """Verifies American Express edge case with maximum valid length."""
         self.assertTrue(credit_card_validator("379912345678901"))
 
-    def test54_amex_invalid_checksum(self):
+    def test47(self):
         """Verifies if American Express cards with invalid checksums return False."""
         self.assertFalse(credit_card_validator("378282246310005"))
 
-    def test55_mastercard_invalid_checksum(self):
+    def test48(self):
         """Verifies if MasterCard cards with invalid checksums return False."""
         self.assertFalse(credit_card_validator("5555555555554444"))
 
-    def test56_visa_invalid_checksum(self):
+    def test49(self):
         """Verifies if Visa cards with invalid checksums return False."""
         self.assertFalse(credit_card_validator("4111111111111111"))
 
-    def test57_amex_valid_checksum(self):
+    def test50(self):
         """Verifies if American Express cards with valid checksums return True."""
         self.assertTrue(credit_card_validator("378282246310005"))
 
-    def test58_mastercard_valid_checksum(self):
+    def test51(self):
         """Verifies if MasterCard cards with valid checksums return True."""
         self.assertTrue(credit_card_validator("5555555555554444"))
 
-    def test59_visa_valid_checksum(self):
+    def test52(self):
         """Verifies if Visa cards with valid checksums return True."""
         self.assertTrue(credit_card_validator("4111111111111111"))
+
+    def test53(self):
+        """Verifies if American Express cards with valid Luhn algorithm return True."""
+        self.assertTrue(credit_card_validator("378282246310005"))
+
+    def test54(self):
+        """Verifies if MasterCard cards with valid Luhn algorithm return True."""
+        self.assertTrue(credit_card_validator("5555555555554444"))
+
+    def test55(self):
+        """Verifies if Visa cards with valid Luhn algorithm return True."""
+        self.assertTrue(credit_card_validator("4111111111111111"))
+
+    def test56(self):
+        """Verifies if American Express cards with invalid Luhn algorithm return False."""
+        self.assertFalse(credit_card_validator("378282246310006"))
+
+    def test57(self):
+        """Verifies if MasterCard cards with invalid Luhn algorithm return False."""
+        self.assertFalse(credit_card_validator("5555555555554445"))
+
+    def test58(self):
+        """Verifies if Visa cards with invalid Luhn algorithm return False."""
+        self.assertFalse(credit_card_validator("4111111111111112"))
+
 
 
 

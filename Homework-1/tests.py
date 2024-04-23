@@ -246,6 +246,34 @@ class TestCreditCardValidator(unittest.TestCase):
     def test58(self):
         """Verifies if Visa cards with invalid Luhn algorithm return False."""
         self.assertFalse(credit_card_validator("4111111111111112"))
+    
+    def test59(self):
+        """Verifies if Visa cards with invalid length return False."""
+        self.assertFalse(credit_card_validator("423456789012344"))
+
+    def test59(self):
+        """Verifies if Visa cards with invalid length return False."""
+        self.assertFalse(credit_card_validator("42345678901234566"))
+
+    def test60(self):
+        """Verifies if MasterCard cards with invalid length return False."""
+        self.assertFalse(credit_card_validator("51345678901234567"))
+
+    def test61(self):
+        """Verifies if MasterCard cards with valid length return True."""
+        self.assertTrue(credit_card_validator("5534567890123450"))
+    
+    def test62(self):
+        """Verifies if American Express cards with valid length return True."""
+        self.assertTrue(credit_card_validator("2221567890123455"))
+
+    def test63(self):
+        """Verifies if American Express cards with valid length return True."""
+        self.assertTrue(credit_card_validator("2720567890123451"))
+
+    def test64(self):
+        """Verifies if American Express cards with valid length return True."""
+        self.assertTrue(credit_card_validator("2222567890123454")) 
 
 
 

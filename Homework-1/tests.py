@@ -14,7 +14,7 @@ class TestCreditCardValidator(unittest.TestCase):
     def test1(self):
         """Verifies if Visa cards with valid lengths and valid prefixes returns True."""
 
-        self.assertTrue(credit_card_validator('4012340123401234'))
+        self.assertTrue(credit_card_validator('4012340123401208'))
 
     def test2(self):
         """Verifies if Visa cards with valid lengths and invalid prefixes returns False."""
@@ -410,6 +410,11 @@ class TestCreditCardValidator(unittest.TestCase):
         """Verifies if MasterCard cards with invalid length return False."""
 
         self.assertFalse(credit_card_validator('22210401234121101'))
+
+    def test76(self):
+        """Verifies if Visa cards with invalid lengths and valid prefixes returns False."""
+
+        self.assertFalse(credit_card_validator('401234012341236'))
 
 
 if __name__ == '__main__':

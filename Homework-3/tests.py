@@ -24,7 +24,6 @@ def generate_testcases(tests_to_generate=450000):
     for i in range(tests_to_generate):
         length = random.randint(14, 17)
         card_number = ''.join(random.choices(string.digits, k=length))
-        
         test_func_name = 'test_' + str(i)
         test_case_func = build_test_func(card_number, credit_card_validator)
         setattr(TestCase, test_func_name, test_case_func)

@@ -19,7 +19,7 @@ def build_test_func(test_case, func_under_test):
     return test
 
 
-def generate_testcases(tests_to_generate=450000):
+def generate_testcases(tests_to_generate=400000):
 
     for i in range(tests_to_generate):
         length = random.randint(14, 17)

@@ -11,11 +11,11 @@ class TestCase(unittest.TestCase):
 def build_test_func(test_case, func_under_test):
     def test(self):
         result = func_under_test(test_case)
-        self.assertIsInstance(result, bool, f"Value returned is not a bool: {result}")
+        self.assertIsInstance(result, bool, f"The credit card number is valid: {result}")
     return test
 
 
-def generate_testcases(tests_to_generate=1000):
+def generate_testcases(tests_to_generate=600000):
     for i in range(tests_to_generate):
         length = random.randint(14, 17)
         card_number = ''.join(random.choices(string.digits, k=length))
